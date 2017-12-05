@@ -1,0 +1,6 @@
+scopes:
+    lang_key:
+        label: Language
+        type: group 
+        modelClass: Pmesolution\Translate\Models\Language
+        conditions: lang_key not in (select lang_key from pmesolution_translate_languages where id in (:filtered) )

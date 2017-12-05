@@ -1,0 +1,53 @@
+<div class="layout-cell layout-container">
+    <div data-control="toolbar">
+        <a
+            href="<?= Backend::url('pmesolution/translate/language/create') ?>"
+            class="btn btn-primary oc-icon-plus">
+            New Language
+        </a>
+
+        <a
+            href="<?= Backend::url('pmesolution/translate/ocstring') ?>"
+            class="btn btn-primary oc-icon-leaf">
+            Translations
+        </a>
+    </div>
+
+<table role="table" class="table translatelangindex">
+<thead>
+	<th>Default</th>
+	<th>Name</th>
+	<th>Code</th>
+	<th>Flag</th>
+    <th>Edit</th>
+    <th>Default Locale</th>
+    <th>Hreflang</th>
+    <th>Update</th>
+</thead>
+<?php foreach($list as $item) { ?>
+	<tr>
+        <form method="POST" 
+            data-request="onUpdateLang"
+            action="onUpdateLang"
+            accept="image/png,image/jpeg,image/pjpeg"
+            enctype="multipart/form-data"
+            >
+        <input type="hidden" name="id" value="<?php echo $item->id; ?>"/>
+        <td><input type="checkbox" <?php if ($item->default == 1){ echo "checked" ;}else { ;} ?> /></td>
+		<td><input type="text" name="name" value="<?php echo $item->name; ?>"/></td>
+		<td><input type="text" name="lang_key" value="<?php echo $item->lang_key; ?>"/></td>
+        <td><img style="width:50px"src="<?php  if($item->flag_icon){echo $item->flag_icon->getPath();}else { echo 'default';}?>" /></td>
+        <td>
+            <!--<input type="file" enctype="multipart" name="newflag" id="newflag"/>-->
+            <a href="language/update/<?php echo $item->id; ?>">Edit</a>
+        </td>
+        <td><input type="text" name="locale" value="<?php echo $item->locale; ?>"/></td>
+        <td><input type="text" name="hreflang" value="<?php echo $item->hreflang;?>"/></td>
+        <td>
+            <input type="submit"/>
+        </td>
+        </form>
+	</tr>
+<?php } ?>
+</table>
+</div>

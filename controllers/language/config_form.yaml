@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Language
+
+# Model Form Field configuration
+form: $/pmesolution/translate/models/language/fields.yaml
+
+# Model Class name
+modelClass: Pmesolution\Translate\Models\Language
+
+# Default redirect location
+defaultRedirect: pmesolution/translate/language
+
+# Create page
+create:
+    title: Create Language
+    redirect: pmesolution/translate/language/update/:id
+    redirectClose: pmesolution/translate/language
+
+# Update page
+update:
+    title: Edit Language
+    redirect: pmesolution/translate/language
+    redirectClose: pmesolution/translate/language
+
+# Preview page
+preview:
+    title: Preview Language

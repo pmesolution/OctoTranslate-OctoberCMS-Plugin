@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Ocstring
+
+# Model Form Field configuration
+form: $/pmesolution/translate/models/ocstring/fields.yaml
+
+# Model Class name
+modelClass: Pmesolution\Translate\Models\Ocstring
+
+# Default redirect location
+defaultRedirect: pmesolution/translate/ocstring
+
+# Create page
+create:
+    title: Create String
+    redirect: pmesolution/translate/ocstring/update/:id
+    redirectClose: pmesolution/translate/ocstring
+
+# Update page
+update:
+    title: Edit String
+    redirect: pmesolution/translate/ocstring
+    redirectClose: pmesolution/translate/ocstring
+
+# Preview page
+preview:
+    title: Preview String

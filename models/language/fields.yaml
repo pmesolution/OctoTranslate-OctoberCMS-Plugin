@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    lang_key:
+        label: Code
+    name:
+        label: Name
+    locale:
+        label: Default locale
+    hreflang:
+        label : Hreflang
+    flag_icon:
+        label : Flag
+        type: fileupload
+    default:
+        label: Default
+        type: checkbox

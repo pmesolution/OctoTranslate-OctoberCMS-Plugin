@@ -1,0 +1,10 @@
+<ul id="languageswitcher"style="position:absolute;z-index:10000;background:none; text-align:center;top:0;right:10px;">
+    {% for link in Switcher.links %}
+    <li style="list-style-type:none;" >
+        <a style="font-weight:bold;text-transform:uppercase" href="{{link.url}}" class="">
+            <span class="flag-icon flag-icon-{{link.lang}}" style="{{link.bgimg}}";></span>
+            {{link.name}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>

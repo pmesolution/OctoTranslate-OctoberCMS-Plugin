@@ -1,0 +1,23 @@
+1.0.1: First version of translate
+1.0.2:
+    - create language table
+    - create_languages_table.php
+1.0.3:
+    - register new marktag
+1.0.4:
+    - create new table for strings 
+    - create_ocstrings_table.php
+1.0.5:
+    - create new components
+1.0.6 :
+    - create ocstring controller
+1.0.7:
+    - changes according requirements
+1.0.8 :
+    - add blog language field    
+1.0.9 :
+    - add meta title and description for blog posts
+    - create_blog_language_fields.php
+1.0.10 :
+    - add meta title and description for blog posts
+    - update_blog_categories_table.php

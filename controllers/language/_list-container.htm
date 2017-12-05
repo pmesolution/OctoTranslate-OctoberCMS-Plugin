@@ -1,0 +1,16 @@
+<?php if ($toolbar): ?>
+    <?= $toolbar->render() ?>
+<?php endif ?>
+
+<?php if ($filter): ?>
+    <?= $filter->render() ?>
+<?php endif ?>
+
+<div class="row row-flush">
+    <div class="col-sm-3">
+        [Insert sidebar here]
+    </div>
+    <div class="col-sm-9 list-with-sidebar">
+        <?= $list->render() ?>
+    </div>
+</div>
