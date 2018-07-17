@@ -46,7 +46,8 @@ class Switcher extends ComponentBase
         $languages = Language::All();
 
          $session= Session::get('lang_id');
-         $current_lang = ($session != null)?$session : 1;
+         $default = Language::where('default', 1)->first();
+         $current_lang = ($session != null)?$session : $default->id ;
 
         //parse url to check if language key is already appended
         $uri = Request::getUri();

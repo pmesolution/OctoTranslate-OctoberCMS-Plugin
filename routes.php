@@ -1,4 +1,4 @@
-<?php
+    <?php
 /*
 This file is part of PMESolution OctoberCMS Translation plugin.
 
@@ -21,8 +21,7 @@ use Cms\Helpers\Cms;
 use Pmesolution\Translate\Models\Language as Language;
 use Cms\Classes\Router;
 use Cms\Classes\Theme;
-use Response;
-use Redirect;
+
 
 
 //home

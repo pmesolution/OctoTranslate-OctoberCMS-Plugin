@@ -57,7 +57,7 @@ class Ocstring extends Controller
             Session::put('lang_id', $decoded->id);
            }else {
                 //lang_id doesn't exists;
-                $r = Language::where('default', true)->first();
+                $r = Language::where('default', 1)->first();
                 $d = json_decode($r);
                 //here, the database result define the default language to use
                 Session::put('lang_id', $d->id);

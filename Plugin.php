@@ -84,7 +84,7 @@ class Plugin extends PluginBase
          Event::listen('cms.page.beforeDisplay', function($controller, $fileName) {
 
 
-            if ($fileName != 'blog'){
+            if ($fileName != 'blog'){ //en fait ici c'est l'URL du coup
                 return ;
             }
 
@@ -92,7 +92,8 @@ class Plugin extends PluginBase
                   $lang = Language::where('lang_key' ,$lang )->first();
                   Session::put('lang_id', $lang->id);
             }else {
-                $id = Session::get('lang_id') == null ? 1 : Session::get('lang_id');
+                $default = Language::where('default', 1)->first();
+                $id = Session::get('lang_id') == null ? $default->id : Session::get('lang_id');
                 Session::put('lang_id' , $id);
             }
 
@@ -135,13 +136,6 @@ class Plugin extends PluginBase
                 $model->language = $lang->name;
             });
         });
-
-        \Cms\Classes\Page::extend(function($controller){
-        	$controller->bindEvent('page.pageUrl', function($url){
-        		return $url.'dddddddd';
-        	});
-        });
-
 
     }
 
@@ -275,9 +269,14 @@ class Plugin extends PluginBase
     }
 
     public function getlang(){
-        $id = Session::get('lang_id') == null ? 1 : Session::get('lang_id');
+
+        $default = Language::where('default', 1)->first();
+
+        $id = Session::get('lang_id') == null ? $default->id : Session::get('lang_id');
         $language = Language::where('id', $id)->first();
+
         return $language;
+
     }
 
     public function translateText($text){
@@ -286,7 +285,13 @@ class Plugin extends PluginBase
             $session= Session::get('lang_id');
             $currentpage = Request::getUri();
 
-            $current_lang = ($session != null)?$session : 1;
+            $default = Language::where('default', 1)->first();
+
+
+
+            $current_lang = ($session != null)? $session : $default->id;
+
+            
 
             $languages = Language::all();
             $translated = array();
